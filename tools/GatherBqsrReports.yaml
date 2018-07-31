@@ -1,0 +1,32 @@
+cwlVersion: v1.0
+class: CommandLineTool
+id: gatk_gatherbqsrreports
+requirements:
+  - class: ShellCommandRequirement
+  - class: InlineJavascriptRequirement
+  - class: DockerRequirement
+    dockerPull: us.gcr.io/broad-gotc-prod/genomes-in-the-cloud:2.3.2-1510681135
+  - class: ResourceRequirement
+    ramMin: 3500
+baseCommand: [/usr/gitc/gatk4/gatk-launch, GatherBQSRReports]
+arguments:
+  - position: 0
+    shellQuote: false
+    valueFrom: >-
+      --javaOptions "-Xms3000m"
+      -O $(inputs.output_report_filename)
+inputs:
+  input_bqsr_reports:
+    type:
+      type: array
+      items: File
+      inputBinding:
+        prefix: "-I"
+        separate: true
+  output_report_filename: string
+
+outputs:
+  output_report:
+    type: File
+    outputBinding:
+      glob: "*.csv"

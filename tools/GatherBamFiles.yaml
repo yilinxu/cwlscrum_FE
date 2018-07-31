@@ -1,0 +1,36 @@
+cwlVersion: v1.0
+class: CommandLineTool
+id: gatk_gatherbamfiles
+requirements:
+  - class: ShellCommandRequirement
+  - class: InlineJavascriptRequirement
+  - class: DockerRequirement
+    dockerPull: us.gcr.io/broad-gotc-prod/genomes-in-the-cloud:2.3.2-1510681135
+  - class: ResourceRequirement
+    ramMin: 3500
+baseCommand: [java, -Dsamjdk.compression_level=2, -Xms2000m, -jar, /usr/gitc/picard.jar]
+arguments:
+  - position: 0
+    shellQuote: false
+    valueFrom: >-
+      GatherBamFiles
+      OUTPUT=$(inputs.output_bam_name)
+      CREATE_INDEX=false
+      CREATE_MD5_FILE=true
+
+inputs:
+  input_bam:
+    type:
+      type: array
+      items: File
+      inputBinding:
+        prefix: INPUT=
+        separate: false
+  output_bam_name: string
+
+outputs:
+  output_bam:
+    type: File
+    outputBinding:
+      glob: "*.bam"
+    secondaryFiles: [^.bam.md5]
