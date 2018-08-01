@@ -42,7 +42,7 @@ if __name__ == "__main__":
         # Generate a uuid
         output_id = uuid.uuid4()
 
-        slurm = open(os.path.join(args.outdir, "topmed.align.%s.sh" % reads[r]), "w")
+        slurm = open(os.path.join(args.outdir, "topmed.align.%s.sh" % reads[r][0]), "w")
         template = os.path.join(os.path.dirname(os.path.realpath(__file__)),
                                 "etc/template_alignment.sh")
         temp = open(template, "r")
@@ -77,4 +77,3 @@ if __name__ == "__main__":
             slurm.write(line)
         slurm.close()
         temp.close()
-
