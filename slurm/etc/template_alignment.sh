@@ -22,7 +22,6 @@ thread_count="XX_THREAD_COUNT_XX"
 basedir=`sudo mktemp -d topmed.XXXXXXXXXX -p /mnt/SCRATCH/`
 refdir="XX_REFDIR_XX"
 s3dir_bam="XX_BAM_S3DIR_XX"
-s3dir_fastq="XX_FASTQ_S3DIR_XX"
 
 repository="git@github.com:yilinxu/cwlscrum_topmed.git"
 sudo chown ubuntu:ubuntu $basedir
