@@ -55,18 +55,14 @@ if __name__ == "__main__":
                 line = line.replace("XX_INPUT_XX", str(reads[r][0]))
             if "XX_PROJECT_XX" in line:
                 line = line.replace("XX_PROJECT_XX", str(reads[r][1]))
-            if "XX_MD5_R1_XX" in line:
-                line = line.replace("XX_MD5_R1_XX", str(reads[r][2]))
-            if "XX_MD5_R2_XX" in line:
-                line = line.replace("XX_MD5_R2_XX", str(reads[r][3]))
-            if "XX_S3URL_R1_XX" in line:
-                line = line.replace("XX_S3URL_R1_XX", str(reads[r][4]))
-            if "XX_S3URL_R2_XX" in line:
-                line = line.replace("XX_S3URL_R2_XX", str(reads[r][5]))
+            if "XX_MD5_XX" in line:
+                line = line.replace("XX_MD5_XX", str(reads[r][2]))
+            if "XX_S3URL_XX" in line:
+                line = line.replace("XX_S3URL_XX", str(reads[r][3]))
             if "XX_S3PROFILE_XX" in line:
-                line = line.replace("XX_S3PROFILE_XX", str(reads[r][6]))
+                line = line.replace("XX_S3PROFILE_XX", str(reads[r][4]))
             if "XX_S3ENDPOINT_XX" in line:
-                line = line.replace("XX_S3ENDPOINT_XX", str(reads[r][7]))
+                line = line.replace("XX_S3ENDPOINT_XX", str(reads[r][5]))
             if "XX_REFDIR_XX" in line:
                 line = line.replace("XX_REFDIR_XX", args.refdir)
             if "XX_S3DIR_XX" in line:
