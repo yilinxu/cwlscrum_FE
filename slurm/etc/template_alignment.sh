@@ -46,5 +46,4 @@ trap cleanup EXIT
 --refdir $refdir \
 --cwl $basedir/topmed_cwl/workflows/alignment_workflow_md5checker.cwl \
 --bam_s3dir $s3dir_bam \
---fastq_s3dir $s3dir_fastq \
 --thread_count $thread_count
