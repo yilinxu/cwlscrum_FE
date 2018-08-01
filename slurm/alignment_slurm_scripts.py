@@ -52,7 +52,7 @@ if __name__ == "__main__":
             if "XX_MEM_XX" in line:
                 line = line.replace("XX_MEM_XX", str(args.mem))
             if "XX_INPUTID_XX" in line:
-                line = line.replace("XX_INPUT_XX", str(reads[r][0]))
+                line = line.replace("XX_INPUTID_XX", str(reads[r][0]))
             if "XX_PROJECT_XX" in line:
                 line = line.replace("XX_PROJECT_XX", str(reads[r][1]))
             if "XX_MD5_XX" in line:
