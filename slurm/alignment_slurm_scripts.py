@@ -51,7 +51,7 @@ if __name__ == "__main__":
                 line = line.replace("XX_THREAD_COUNT_XX", str(args.thread_count))
             if "XX_MEM_XX" in line:
                 line = line.replace("XX_MEM_XX", str(args.mem))
-            if "XX_INPUT_XX" in line:
+            if "XX_INPUTID_XX" in line:
                 line = line.replace("XX_INPUT_XX", str(reads[r][0]))
             if "XX_PROJECT_XX" in line:
                 line = line.replace("XX_PROJECT_XX", str(reads[r][1]))
