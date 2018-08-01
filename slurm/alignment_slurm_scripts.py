@@ -65,7 +65,7 @@ if __name__ == "__main__":
                 line = line.replace("XX_S3ENDPOINT_XX", str(reads[r][5]))
             if "XX_REFDIR_XX" in line:
                 line = line.replace("XX_REFDIR_XX", args.refdir)
-            if "XX_S3DIR_XX" in line:
+            if "XX_BAM_S3DIR_XX" in line:
                 line = line.replace("XX_S3DIR_XX", args.s3dir)
             if "XX_OUTPUT_ID_XX" in line:
                 line = line.replace("XX_OUTPUT_ID_XX", str(output_id))
