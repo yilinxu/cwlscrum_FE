@@ -11,7 +11,6 @@ function cleanup (){
 }
 
 input_id="XX_INPUTID_XX"
-input_table="XX_INPUT_TABLE_XX"
 project="XX_PROJECT_XX"
 output_id="XX_OUTPUT_ID_XX"
 md5="XX_MD5_XX"
