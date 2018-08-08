@@ -1,9 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #SBATCH --nodes=1
-#SBATCH --cpus-per-task=XX_THREAD_COUNT_XX
 #SBATCH --ntasks=1
-#SBATCH --mem=XX_MEM_XX
 #SBATCH --workdir="/mnt/SCRATCH/"
+#SBATCH --cpus-per-task=XX_CORE_COUNT_XX
+#SBATCH --mem=XX_MEM_XX
+#SBATCH --gres=SCRATCH:XX_DISK_GB_XX
 
 function cleanup (){
     echo "cleanup tmp data";
@@ -33,7 +34,7 @@ sudo chown ubuntu:ubuntu -R topmed_cwl
 
 trap cleanup EXIT
 
-/home/ubuntu/.virtualenvs/p2/bin/python topmed_cwl/slurm/function_equivalent_alignment.py \
+/home/ubuntu/.virtualenvs/p2/bin/python topmed_cwl/slurm/alignment-run-workflow.py run_cwl \
 --input_id $input_id \
 --output_id $output_id \
 --input_table $input_table \

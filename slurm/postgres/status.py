@@ -1,4 +1,4 @@
-'''
+ '''
 Postgres tables for the PDC CWL Workflow
 '''
 import postgres.utils
@@ -31,35 +31,35 @@ def get_status(upload_exit, cwl_exit, upload_file_location, upload_dir_location,
     return(status, loc)
 
 
-class State(object):
-    pass
+# class State(object):
+#     pass
 
 
 class Files(object):
     pass
 
 
-def get_reads(engine, input_table, input_primary_column="id"):
+def get_bams(engine, input_table):
     Session = sessionmaker()
     Session.configure(bind=engine)
     session = Session()
     meta = MetaData(engine)
     # read the input table
-    data = Table(input_table, meta, Column(input_primary_column, String, primary_key=True), autoload=True)
+    data = Table(input_table, meta, autoload=True, autoload_with=engine)
     mapper(Files, data)
-    count = 0
-    s = dict()
-    cases = session.query(Files).all()
-    for row in cases:
-        s[count] = [row.input_id,
-                    row.project,
-                    row.md5sum,
-                    row.s3_url,
-                    row.s3_profile,
-                    row.s3_endpoint]
-        count += 1
+    # count = 0
+    # s = dict()
+    bams = session.query(Files).all()
+    # for row in cases:
+    #     s[count] = [row.input_id,
+    #                 row.project,
+    #                 row.md5sum,
+    #                 row.s3_url,
+    #                 row.s3_profile,
+    #                 row.s3_endpoint]
+    #     count += 1
 
-    return s
+    return bams
 
 
 def get_case(engine, input_table, status_table, input_primary_column="id"):
