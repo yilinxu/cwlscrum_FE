@@ -326,10 +326,10 @@ if __name__ == '__main__':
     if args.choice == 'slurm':
         run_build_slurm_scripts(args)
     elif args.choice == 'run_cwl':
-        class TableStatus(postgres.mixins.StatusTypeMixin, postgres.utils.Base)
+        class TableStatus(postgres.mixins.StatusTypeMixin, postgres.utils.Base):
             __tablename__ = "alignment_cwl_status"
 
-        class TableMetrics(postgres.mixins.MetricsTypeMixin, postgres.utils.Base)
+        class TableMetrics(postgres.mixins.MetricsTypeMixin, postgres.utils.Base):
             __tablename__ = "alignment_cwl_metrics"
     # Run CWL
     run_cwl(args, TableStatus, TableMetrics)
