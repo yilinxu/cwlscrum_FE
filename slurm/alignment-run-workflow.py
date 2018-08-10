@@ -36,6 +36,7 @@ def get_args():
     p_slurm.add_argument('--cwl_version', required=True)
     p_slurm.add_argument('--docker_version', required=True)
     p_slurm.add_argument('--s3dir', required=True)
+    p_slurm.add_argument('--thread_count', required=True)
 
     # Build json files and run cwl
     p_input = sp.add_parser('run_cwl', help='Options for building input json and run cwl.')
