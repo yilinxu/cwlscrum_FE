@@ -35,7 +35,7 @@ def get_args():
     p_slurm.add_argument('--ref_table_name', required=True)
     p_slurm.add_argument('--cwl_version', required=True)
     p_slurm.add_argument('--docker_version', required=True)
-    p_slurm.add_argument('--s3dir', required=True)
+    p_slurm.add_argument('--s3_dir', required=True)
     p_slurm.add_argument('--thread_count', required=True)
 
     # Build json files and run cwl
