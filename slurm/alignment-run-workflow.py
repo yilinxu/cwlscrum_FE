@@ -121,8 +121,6 @@ def run_build_slurm_scripts(args):
                     line = line.replace('XX_CORE_COUNT_XX', str(resource_core_count))
                 elif 'XX_DISK_GB_XX' in line:
                     line = line.replace('XX_DISK_GB_XX', str(disk_gigabytes))
-                elif 'XX_DISK_GB_XX' in line:
-                    line = line.replace('XX_DISK_GB_XX', s3dir_bam)
                 elif 'XX_OUTPUTBASE_XX' in line:
                     line = line.replace('XX_OUTPUTBASE_XX', output_basename)
                 elif 'XX_PG_USER_XX' in line:
@@ -140,9 +138,9 @@ def run_build_slurm_scripts(args):
                 elif 'XX_S3_DIR_XX' in line:
                     line = line.replace('XX_S3_DIR_XX', s3_dir)
 
-                job_slurm.write(line)
-            job_slurm.close()
+                f_open.write(line)
             f_open.close()
+            bam_open.close()
 
 
 def build_json_input(args, refdir, inpdir):
