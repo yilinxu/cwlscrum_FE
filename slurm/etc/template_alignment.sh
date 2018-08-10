@@ -13,7 +13,7 @@ function cleanup (){
 
 input_id="XX_INPUTID_XX"
 output_uuid="XX_OUTPUT_ID_XX"
-output_basename = "XX_OUTPUTBASE_XX"
+output_basename="XX_OUTPUTBASE_XX"
 project="XX_PROJECT_XX"
 output_id="XX_OUTPUT_ID_XX"
 md5="XX_MD5_XX"
@@ -26,8 +26,8 @@ pg_pw="XX_PG_PW_XX"
 ref_table_name="XX_REF_TABLE_XX"
 cwl_version="XX_CWL_VERSION_XX"
 docker_version="XX_DOCKER_VERSION_XX"
-input_table_name = "XX_INPUT_TABLE_XX"
-s3_dir = "XX_S3_DIR_XX"
+input_table_name="XX_INPUT_TABLE_XX"
+s3_dir="XX_S3_DIR_XX"
 
 basedir=`sudo mktemp -d topmed.XXXX -p /mnt/SCRATCH/`
 
