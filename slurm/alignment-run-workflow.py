@@ -54,7 +54,7 @@ def get_args():
     p_input.add_argument('--ref_table_name', required=True)
     p_input.add_argument('--cwl_version', required=True)
     p_input.add_argument('--docker_version', required=True)
-    p_input.add_argument('--s3dir', required=True)
+    p_input.add_argument('--s3_dir', required=True)
     p_input.add_argument('--base_dir', required=True)
 
     return parser.parse_args()
@@ -274,7 +274,7 @@ def run_cwl(args, statusclass, metricsclass):
     # Upload output
     upload_start = time.time()
     os.chdir(jobdir)
-    upload_dir_location = os.path.join(args.s3dir, args.output_id)
+    upload_dir_location = os.path.join(args.s3_dir, args.output_id)
     upload_cram_location = os.path.join(upload_dir_location, os.path.basename(output_cram))
     upload_crai_location = os.path.join(upload_dir_location, os.path.basename(output_crai))
     upload_log_location = os.path.join(upload_dir_location, os.path.basename(log_file))

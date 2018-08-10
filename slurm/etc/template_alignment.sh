@@ -21,7 +21,7 @@ s3_url="XX_S3URL_XX"
 s3_profile="XX_S3PROFILE_XX"
 s3_endpoint="XX_S3ENDPOINT_XX"
 thread_count="XX_THREAD_COUNT_XX"
-pg_useer="XX_PG_USER_XX"
+pg_user="XX_PG_USER_XX"
 pg_pw="XX_PG_PW_XX"
 ref_table_name="XX_REF_TABLE_XX"
 cwl_version="XX_CWL_VERSION_XX"
@@ -44,19 +44,19 @@ trap cleanup EXIT
 /home/ubuntu/.virtualenvs/p2/bin/python topmed_cwl/slurm/alignment-run-workflow.py run_cwl \
 --input_id $input_id \
 --output_uuid $output_uuid \
---output_basename $output_basename\
+--output_basename $output_basename \
 --project $project \
 --md5 $md5 \
 --s3_url $s3_url \
 --s3_profile $s3_profile \
 --s3_endpoint $s3_endpoint \
 --cwl topmed_cwl/workflows/alignment_workflow_md5checker.cwl \
---thread_count $thread_count\
---pg_user $pg_user\
---pg_pw $pg_pw\
---ref_table_name $ref_table_name\
---cwl_version $cwl_version\
---docker_version $docker_version\
---input_table_name $input_table_name\
---s3_dir $s3_dir\
+--thread_count $thread_count \
+--pg_user $pg_user \
+--pg_pw $pg_pw \
+--ref_table_name $ref_table_name \
+--cwl_version $cwl_version \
+--docker_version $docker_version \
+--input_table_name $input_table_name \
+--s3_dir $s3_dir \
 --base_dir $basedir
