@@ -277,22 +277,22 @@ def run_cwl(args, statusclass, metricsclass):
     os.chdir(jobdir)
     upload_dir_location = os.path.join(args.s3dir, args.output_id)
     upload_cram_location = os.path.join(upload_dir_location, os.path.basename(output_cram))
-    upload_crai_location = os.path.join(upload_dir_location, os.path.basename(output_crai)
-    upload_log_location=os.path.join(upload_dir_location, os.path.basename(log_file))
+    upload_crai_location = os.path.join(upload_dir_location, os.path.basename(output_crai))
+    upload_log_location = os.path.join(upload_dir_location, os.path.basename(log_file))
     logger.info("Uploading workflow output to %s" % (upload_cram_location))
-    upload_exit=utils.s3.aws_s3_put(logger, upload_cram_location, output_cram, s3_profile, s3_endpoint, recursive=False)
-    upload_exit=utils.s3.aws_s3_put(logger, upload_crai_location, output_crai, s3_profile, s3_endpoint, recursive=False)
+    upload_exit = utils.s3.aws_s3_put(logger, upload_cram_location, output_cram, s3_profile, s3_endpoint, recursive=False)
+    upload_exit = utils.s3.aws_s3_put(logger, upload_crai_location, output_crai, s3_profile, s3_endpoint, recursive=False)
 
     # Calculate times
-    cwl_end=time.time()
-    upload_time=cwl_end - upload_start
-    cwl_elapsed=cwl_end - cwl_start
-    datetime_end=str(datetime.datetime.now())
+    cwl_end = time.time()
+    upload_time = cwl_end - upload_start
+    cwl_elapsed = cwl_end - cwl_start
+    datetime_end = str(datetime.datetime.now())
     logger.info("datetime_end: %s" % (datetime_end))
 
     # Get status info
     logger.info("Get status/metrics info")
-    status, loc=postgres.status.get_status(upload_exit, cwl_exit, upload_cram_location, upload_dir_location, logger)
+    status, loc = postgres.status.get_status(upload_exit, cwl_exit, upload_cram_location, upload_dir_location, logger)
 
     # Set status table
     logger.info("Updating status: %d" % cwl_exit)
@@ -300,7 +300,7 @@ def run_cwl(args, statusclass, metricsclass):
                                        loc, datetime_start, datetime_end, md5, file_size, hostname, cwl_version, docker_version, statusclass)
 
     # Get metrics info
-    time_metrics=utils.pipeline.get_time_metrics(log_file)
+    time_metrics = utils.pipeline.get_time_metrics(log_file)
 
     # Set metrics table
     logger.info("Updating metrics")
@@ -321,15 +321,15 @@ def run_cwl(args, statusclass, metricsclass):
 
 if __name__ == '__main__':
     # Get args
-    args=get_args()
+    args = get_args()
     # Run tool
     if args.choice == 'slurm':
         run_build_slurm_scripts(args)
     elif args.choice == 'run_cwl':
         class TableStatus(postgres.mixins.StatusTypeMixin, postgres.utils.Base)
-            __tablename__="alignment_cwl_status"
+            __tablename__ = "alignment_cwl_status"
 
         class TableMetrics(postgres.mixins.MetricsTypeMixin, postgres.utils.Base)
-            __tablename__="alignment_cwl_metrics"
+            __tablename__ = "alignment_cwl_metrics"
     # Run CWL
     run_cwl(args, TableStatus, TableMetrics)
