@@ -31,7 +31,7 @@ s3_dir="XX_S3_DIR_XX"
 
 basedir=`sudo mktemp -d topmed.XXXX -p /mnt/SCRATCH/`
 
-repository="https//github.com/yilinxu/cwlscrum_topmed.git"
+repository="https://github.com/yilinxu/cwlscrum_topmed.git"
 sudo chown ubuntu:ubuntu $basedir
 
 cd $basedir
