@@ -1,6 +1,6 @@
-    '''
-   Postgres tables for the PDC CWL Workflow
-   '''
+'''
+Postgres tables for the PDC CWL Workflow
+'''
 import postgres.utils
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, mapper
