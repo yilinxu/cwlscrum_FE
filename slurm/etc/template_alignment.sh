@@ -12,7 +12,7 @@ function cleanup (){
 }
 
 input_id="XX_INPUTID_XX"
-output_uuid="XX_OUTPUTID_XX"
+output_uuid="XX_OUTPUT_ID_XX"
 output_basename = "XX_OUTPUTBASE_XX"
 project="XX_PROJECT_XX"
 output_id="XX_OUTPUT_ID_XX"
