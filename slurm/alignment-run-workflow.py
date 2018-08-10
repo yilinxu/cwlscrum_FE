@@ -115,8 +115,8 @@ def run_build_slurm_scripts(args):
                     line = line.replace("XX_S3PROFILE_XX", s3_profile)
                 elif "XX_S3ENDPOINT_XX" in line:
                     line = line.replace("XX_S3ENDPOINT_XX", s3_endpoint)
-                elif "XX_OUTPUTID_XX" in line:
-                    line = line.replace("XX_OUTPUTID_XX", output_uuid)
+                elif "XX_OUTPUT_ID_XX" in line:
+                    line = line.replace("XX_OUTPUT_ID_XX", output_uuid)
                 elif 'XX_CORE_COUNT_XX' in line:
                     line = line.replace('XX_CORE_COUNT_XX', str(resource_core_count))
                 elif 'XX_DISK_GB_XX' in line:
