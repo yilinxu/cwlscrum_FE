@@ -331,4 +331,4 @@ if __name__ == '__main__':
         class TableMetrics(postgres.mixins.MetricsTypeMixin, postgres.utils.Base):
             __tablename__ = "alignment_cwl_metrics"
     # Run CWL
-    run_cwl(args, TableStatus, TableMetrics)
+        run_cwl(args, TableStatus, TableMetrics)
