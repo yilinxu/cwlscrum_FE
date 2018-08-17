@@ -200,7 +200,7 @@ def run_cwl(args, statusclass, metricsclass):
 
     # setup logger
     log_file = os.path.join(workdir, "%s.alignment.cwl.log" % str(output_uuid))
-    logger = utils.pipeline.setup_logging(output_uuid, log_file)
+    logger = utils.pipeline.setup_logging(logging.INFO, output_uuid, log_file)
 
     # logging inputs
     logger.info("bam_input_id: %s" % (input_id))
