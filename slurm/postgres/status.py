@@ -51,12 +51,12 @@ def get_bams(engine, input_table):
     bams = session.query(Files).all()
     for row in bams:
         file = dict()
-        file[input_id] = row.input_id
-        file[project] = row.project
-        file[md5sum] = row.md5sum
-        file[s3_url] = row.s3_url
-        file[s3_profile] = row.s3_profile
-        file[s3_endpoint] = row.s3_endpoint
+        file['input_id'] = row.input_id
+        file['project'] = row.project
+        file['md5sum'] = row.md5sum
+        file['s3_url'] = row.s3_url
+        file['s3_profile'] = row.s3_profile
+        file['s3_endpoint'] = row.s3_endpoint
         files.append(file)
     return files
 
