@@ -50,15 +50,15 @@ def get_bams(engine, input_table):
     # count = 0
     # s = dict()
     bams = session.query(Files).all()
-    print(bams)
-    # for row in cases:
-    #     s[count] = [row.input_id,
-    #                 row.project,
-    #                 row.md5sum,
-    #                 row.s3_url,
-    #                 row.s3_profile,
-    #                 row.s3_endpoint]
-    #     count += 1
+    for bam in bams:
+        print(bam.s3_url)
+        # s[count] = [row.input_id,
+        #             row.project,
+        #             row.md5sum,
+        #             row.s3_url,
+        #             row.s3_profile,
+        #             row.s3_endpoint]
+        # count += 1
 
     return bams
 
