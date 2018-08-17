@@ -47,20 +47,18 @@ def get_bams(engine, input_table):
     # read the input table
     data = Table(input_table, meta, autoload=True, autoload_with=engine)
     mapper(Files, data)
-    # count = 0
-    # s = dict()
+    files = list()
     bams = session.query(Files).all()
-    for bam in bams:
-        print(bam.s3_url)
-        # s[count] = [row.input_id,
-        #             row.project,
-        #             row.md5sum,
-        #             row.s3_url,
-        #             row.s3_profile,
-        #             row.s3_endpoint]
-        # count += 1
-
-    return bams
+    for row in bams:
+        file = dict()
+        file[input_id] = row.input_id
+        file[project] = row.project
+        file[md5sum] = row.md5sum
+        file[s3_url] = row.s3_url
+        file[s3_profile] = row.s3_profile
+        file[s3_endpoint] = row.s3_endpoint
+        files.append(file)
+    return files
 
 
 # def get_case(engine, input_table, status_table, input_primary_column="id"):
