@@ -57,6 +57,7 @@ def get_args():
     p_input.add_argument('--s3_dir', required=True)
     p_input.add_argument('--base_dir', required=True)
     p_input.add_argument('--input_table_name', required=True)
+    p_input.add_argument('--basedir', required=True)
 
     return parser.parse_args()
 
@@ -188,7 +189,7 @@ def run_cwl(args, statusclass, metricsclass):
     md5 = args.md5
 
     # create directory structure and input locations
-    jobdir = tempfile.mkdtemp(prefix="bam_%s" % output_uuid, dir="./")
+    jobdir = tempfile.mkdtemp(prefix="bam_%s" % output_uuid, dir=args.basedir)
     workdir = tempfile.mkdtemp(prefix="workdir_%s" % output_uuid, dir=jobdir)
     inpdir = tempfile.mkdtemp(prefix="input_%s" % output_uuid, dir=jobdir)
     refdir = tempfile.mkdtemp(prefix="ref_%s" % output_uuid, dir=jobdir)
