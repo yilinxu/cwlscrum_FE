@@ -221,6 +221,7 @@ def run_cwl(args, statusclass, metricsclass):
     for ref in refs:
         print(ref['s3_url'])
         print(os.path.basename(ref['s3_url']))
+        print(refdir)
         local_ref = os.path(refdir, os.path.basename(ref['s3_url']))
         print(local_ref)
         download_exit_code = utils.s3.aws_s3_get(logger, ref['s3_url'], local_ref, ref['s3_profile'], ref['s3_endpoint'], recursive=False)
