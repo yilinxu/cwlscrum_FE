@@ -215,10 +215,13 @@ def run_cwl(args, statusclass, metricsclass):
     # pg_file = inputs['db_config']['location']
     engine = postgres.utils.get_db_engine(args)
     refs = postgres.status.get_bams(engine, ref_table_name)
+    print("reference files")
+    print(refs)
 
     # Download reference files
     logger.info("Downloading reference")
     for ref in refs:
+        print(ref)
         local_ref = os.path(refdir, os.path.basename(ref.s3_url))
         download_exit_code = utils.s3.aws_s3_get(logger, ref.s3_url, local_ref, ref.profile, ref.endpoint, recursive=False)
         ref_md5 = utils.get_md5(local_ref)
