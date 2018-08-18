@@ -57,7 +57,6 @@ def get_args():
     p_input.add_argument('--s3_dir', required=True)
     p_input.add_argument('--base_dir', required=True)
     p_input.add_argument('--input_table_name', required=True)
-    p_input.add_argument('--base_dir', required=True)
 
     return parser.parse_args()
 
