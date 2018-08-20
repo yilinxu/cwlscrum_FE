@@ -14,9 +14,10 @@ def aws_s3_get(logger, remote_input, local_output, profile, endpoint_url, recurs
     endpoint_url endpoint url for s3 store
     '''
     if (remote_input != ""):
-        cmd = ['/home/ubuntu/.virtualenvs/p2/bin/aws', '--profile', profile,
+        cmd = ['/usr/local/bin/aws', '--profile', profile,
                '--endpoint-url', endpoint_url, '--no-verify-ssl', 's3', 'cp', remote_input,
                local_output]
+        print(cmd)
         if recursive:
             cmd.append('--recursive')
         exit_code = utils.pipeline.run_command(cmd, logger)
